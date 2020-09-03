@@ -1,5 +1,5 @@
-import {feedTheDragons} from './magic';
-import {start as startBot} from './bot';
+import { feedTheDragons } from "./magic";
+import { start as startBot } from "./bot";
 
 feedTheDragons();
 

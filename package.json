@@ -1,70 +1,38 @@
 {
-	"name": "telegram-typescript-bot-template",
-	"private": true,
-	"version": "0.0.0",
-	"description": "",
-	"keywords": [
-		""
-	],
-	"license": "MIT",
-	"repository": "<%= githubUsername %>/telegram-typescript-bot-template",
-	"author": {
-		"name": "<%= name %>",
-		"email": "<%= email %>",
-		"url": "<%= website %>"
-	},
-	"scripts": {
-		"build": "del-cli dist && tsc",
-		"prepack": "npm run build",
-		"start": "tsc --sourceMap && node --unhandled-rejections=strict -r source-map-support/register dist/source/index.js",
-		"test": "tsc --sourceMap && xo && nyc ava"
-	},
-	"engines": {
-		"node": ">=14"
-	},
-	"dependencies": {
-		"source-map-support": "^0.5.19",
-		"telegraf": "^3.38.0",
-		"telegraf-i18n": "^6.6.0",
-		"telegraf-inline-menu": "^5.0.0",
-		"telegraf-session-local": "^2.0.0"
-	},
-	"devDependencies": {
-		"@sindresorhus/tsconfig": "^0.7.0",
-		"@types/node": "^14.0.5",
-		"ava": "^3.0.0",
-		"del-cli": "^3.0.0",
-		"nyc": "^15.0.0",
-		"typescript": "^3.7.4",
-		"xo": "^0.32.0"
-	},
-	"files": [
-		"dist/source",
-		"!*.test.*"
-	],
-	"main": "dist/source",
-	"types": "dist/source",
-	"nyc": {
-		"all": true,
-		"extension": [
-			".ts"
-		],
-		"include": [
-			"dist/source",
-			"source"
-		],
-		"exclude": [
-			"**/*.d.ts",
-			"**/*.test.ts"
-		],
-		"reporter": [
-			"lcov",
-			"text"
-		]
-	},
-	"xo": {
-		"rules": {
-			"ava/no-ignored-test-files": "off"
-		}
-	}
+  "name": "bot",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "repository": "",
+  "author": "@lxhan",
+  "scripts": {
+    "build": "del-cli dist && tsc",
+    "prepack": "npm run build",
+    "start": "tsc --sourceMap && nodemon --unhandled-rejections=strict -r source-map-support/register dist/index.js",
+    "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "source-map-support": "^0.5.19",
+    "telegraf": "^3.38.0",
+    "telegraf-inline-menu": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.5",
+    "del-cli": "^3.0.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^3.7.4"
+  },
+  "files": [
+    "dist",
+    "!*.test.*"
+  ],
+  "main": "dist",
+  "types": "dist"
 }

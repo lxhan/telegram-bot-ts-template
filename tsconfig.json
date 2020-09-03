@@ -1,14 +1,16 @@
 {
-	"extends": "@sindresorhus/tsconfig",
-	"include": [
-		"source",
-		"test"
-	],
-	"compilerOptions": {
-		"esModuleInterop": true,
-		"declaration": false,
-		"sourceMap": true,
-		"target": "ES2019",
-		"outDir": "dist"
-	}
+  "include": ["src"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "target": "ES2019",
+    "outDir": "dist"
+  }
 }

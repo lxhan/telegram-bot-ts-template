@@ -1,0 +1,22 @@
+import { MenuTemplate } from 'telegraf-inline-menu'
+
+import { MyContext } from '../my-context'
+
+import { menu as settingsMenu } from './settings'
+
+export const menu = new MenuTemplate<MyContext>(
+  context => `Hi ${context.from.first_name}`
+)
+
+menu.interact('Text', 'unique', {
+  do: async ctx => ctx.reply('Are you sure about it?') as any,
+})
+
+menu.url('Telegram API Documentation', 'https://core.telegram.org/bots/api')
+menu.url('Telegraf Documentation', 'https://telegraf.js.org/')
+menu.url(
+  'Inline Menu Documentation',
+  'https://github.com/EdJoPaTo/telegraf-inline-menu'
+)
+
+menu.submenu(context => '⚙️' + 'Settings', 'settings', settingsMenu)
